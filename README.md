@@ -27,7 +27,7 @@ This project presents a statistical analysis of the **World Health Organization 
 - Clear visualization of pandemic waves across countries.  
 - Identification of regions with the highest case growth and death toll.  
 - Observations on differences in outbreak severity across continents.  
-- Highlighting the usefulness of visual analytics in epidemiological studies.  
+
 
 ## ✅ Conclusion  
 - The WHO dataset provides valuable insights into the COVID-19 pandemic.  
