@@ -1,0 +1,34 @@
+---
+title: "Untitled"
+author: "Chenze-Li"
+date: "2021/3/3"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library("rnaturalearth")
+library("rnaturalearthdata")
+library(ggplot2)
+library(gifski)
+library(dplyr)
+library(countrycode)
+library(ISOcodes)
+require(maps)
+require(viridis)
+library(plotly)
+theme_set(
+  theme_void()
+)
+
+covid <- read_csv("https://covid19.who.int/WHO-COVID-19-global-data.csv")
+covid$WHO_region<-as.factor(covid$WHO_region)
+
+covid_in<-filter(covid,Date_reported>= "2020-01-15", Date_reported<= "2021-02-28")
+covid_in<-group_by(covid_in,Date_reported,WHO_region)
+covid_in_su<-summarise(covid_in,new_case=sum(New_cases),new_death=sum(New_deaths),death_rate=sum(Cumulative_deaths)/sum(Cumulative_cases))
+#covid_in$isoa2<-countrycode(covid_in$Country,origin = "country.name",destination = "iso2c",warn = TRUE)
+#covid_in_s<-inner_join(world_map2, covid_in_su, by = "isoa2")
+covid_in_su$Date<-as.factor(covid_in_su$Date_reported)
+plot_ly(data=covid_in_su,x=~new_case,y=~new_death,frame=~Date,text=~WHO_region,color=~WHO_region,alpha=0.7,type="scatter",showlegend = T,hoverinfo="WHO_region",mode = 'markers')
+```
