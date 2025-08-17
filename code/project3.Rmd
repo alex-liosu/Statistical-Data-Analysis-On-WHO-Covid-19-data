@@ -226,10 +226,10 @@ levels(fdat$status)<-c("Predicted","Real")
 library(ggplot2)
 ggplot(data = fdat, mapping = aes(x = Date, y = new_cases, linetype = status, colour = status, shape = status,fill=status))+
 geom_line() + 
-  geom_point()+ #绘制线图和点图
-scale_linetype_manual(values = c(1,2))+ #自定义线条类型
-scale_color_manual(values = c('blue','red'))+ #自定义颜色
-scale_shape_manual(values = c(21,23))+ #自定义点形状
+  geom_point()+ 
+scale_linetype_manual(values = c(1,2))+ 
+scale_color_manual(values = c('blue','red'))+ 
+scale_shape_manual(values = c(21,23))+ 
 scale_fill_manual(values = c('black','yellow'))+
   labs(y = "Percentage Change",
                   x = "Date",title="United Kingdom")+
@@ -242,10 +242,10 @@ levels(fdatau$status)<-c("Predicted","Real")
 library(ggplot2)
 ggplot(data = fdatau, mapping = aes(x = Date, y = new_cases, linetype = status, colour = status, shape = status,fill=status))+
 geom_line() + 
-  geom_point()+ #绘制线图和点图
-scale_linetype_manual(values = c(1,2))+ #自定义线条类型
-scale_color_manual(values = c('blue','red'))+ #自定义颜色
-scale_shape_manual(values = c(21,23))+ #自定义点形状
+  geom_point()+ 
+scale_linetype_manual(values = c(1,2))+ 
+scale_color_manual(values = c('blue','red'))+ 
+scale_shape_manual(values = c(21,23))+ 
 scale_fill_manual(values = c('black','yellow'))+
   labs(y = "Percentage Change",
                   x = "Date",title="Australia")+
@@ -259,10 +259,10 @@ levels(fdatin$status)<-c("Predicted","Real")
 library(ggplot2)
 ggplot(data = fdatin, mapping = aes(x = Date, y = new_cases, linetype = status, colour = status, shape = status,fill=status))+
 geom_line() + 
-  geom_point()+ #绘制线图和点图
-scale_linetype_manual(values = c(1,2))+ #自定义线条类型
-scale_color_manual(values = c('blue','red'))+ #自定义颜色
-scale_shape_manual(values = c(21,23))+ #自定义点形状
+  geom_point()+ 
+scale_linetype_manual(values = c(1,2))+ 
+scale_color_manual(values = c('blue','red'))+ 
+scale_shape_manual(values = c(21,23))+ 
 scale_fill_manual(values = c('black','yellow'))+
   labs(y = "Percentage Change",
                   x = "Date",title="India")+
@@ -272,4 +272,5 @@ scale_fill_manual(values = c('black','yellow'))+
 library(kableExtra)
 kable(summary(fit))
 ```
+
 
